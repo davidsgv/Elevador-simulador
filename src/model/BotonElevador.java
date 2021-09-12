@@ -1,6 +1,7 @@
 package model;
 
 public class BotonElevador {
+<<<<<<< HEAD
 	private boolean estadoIluminacion;
 	private boolean estadoBoton;
 	
