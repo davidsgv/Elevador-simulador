@@ -7,11 +7,14 @@ public class Piso{
 	private Persona persona;
 	private Elevador elevador;
 	
-	public Piso(){
+	private int numero;
+	
+	public Piso(int numero){
 		persona = null;
+		this.numero= numero; 
+		
 		luz = new Luz();
 		botonPiso = new BotonPiso();
-		persona = new Persona();
 	}
 	
 	public boolean existePersona(){
@@ -20,6 +23,11 @@ public class Piso{
 	
 	public void setPersona(Persona persona){
 		this.persona = persona;
+		
+		String mensaje = "entra persona al piso " + this.numero;
+		Logger.log(mensaje);
+		
+		llamarElevador();
 	}
 	
 	public void llegaElevador() {
@@ -29,7 +37,7 @@ public class Piso{
 	
 	//ToDO
 	public void llamarElevador() {
-		
+		Logger.log("LLamando elevador");
 	}
 	
 }

@@ -1,23 +1,29 @@
 package model;
 
 public class Elevador {
-	private static instance = null;
+	private static Elevador instance = null;
 	
 	private Puerta puerta;
 	private Campana campana;
 	private BotonElevador boton;
 	
+	private Persona persona;
 	private Piso[] pisos;
 	private Piso pisoElevador;
 	
-	public Elevador() {
+	public Elevador(Piso[] pisos) {
 		puerta = new Puerta();
 		campana = new Campana();
 		boton = new BotonElevador();
 		
-		pisoElevador = piso[0];
+		this.pisos = pisos;
+		
+		pisoElevador = pisos[0];
 	}
 	
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
 	
 	public void presionarBoton() {
 		boton.presionarBoton();
