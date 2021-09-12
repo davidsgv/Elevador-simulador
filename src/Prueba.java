@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 
 
@@ -19,12 +20,14 @@ public class Prueba extends Canvas {
 	private int strokeWidth = 10;
 
 	public Prueba() {
+
 		jframe = new JFrame();
 		jframe.setTitle("Space Ship Game");
 		jframe.setSize(WIDTH + 25, HEIGHT + 25);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// jframe.setResizable(false);
 		jframe.setLocationRelativeTo(null);
+
 
 
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -36,7 +39,7 @@ public class Prueba extends Canvas {
 		jframe.setVisible(true);
         
 
-		this.setBackground(Color.BLACK);
+		this.setBackground(Color.BLUE);
 	}
 
 
@@ -54,12 +57,14 @@ public class Prueba extends Canvas {
 		g2d.drawString( " Elevador", 410, 380);
 
 		g2d.setColor( Color.blue );
-        g2d.drawOval( 280, 50, 10, 10 );
-		g2d.drawOval( 280, 380, 10, 10 );
-        //g2d.fillOval( 290, 100, 90, 55 );
+		g2d.setStroke(new BasicStroke(5));
+        g2d.drawOval( 350, 90, 10, 10 );
+		g2d.drawOval( 350, 340, 10, 10 );
+
 		g2d.setPaint( Color.GRAY );                       
-		g2d.drawLine( 359, 0, 359, 10000 );
-		
+		g2d.drawLine( 370, 0, 370, 10000 );
+            
+				
 		paintPiso(g2d);
 		paintElevator(g2d);
 	}
@@ -76,7 +81,7 @@ public class Prueba extends Canvas {
 		for (int i = 0; i < pisos; i++) {
 			if (i != 0 && i != pisos - 1 || pisos == 2 && i != 0) {
 				int y = i * (HEIGHT / pisos);
-				g2d.drawLine(0, y, WIDTH, y);
+				g2d.drawLine(0, y, 370, y);
 			}
 		}
 		g2d.setColor(Color.WHITE);
