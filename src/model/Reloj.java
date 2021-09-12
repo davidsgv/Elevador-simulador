@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 public final class Reloj {
-	public static Reloj instance;
+	public static Reloj instance = null;
 	
 	public Timer timer;
 	public int segundos;
@@ -17,7 +17,7 @@ public final class Reloj {
 		    public void actionPerformed(ActionEvent e)
 		    {
 		    	segundos++;
-		        
+		        System.out.println(segundos);
 		     }
 		});
 	}
