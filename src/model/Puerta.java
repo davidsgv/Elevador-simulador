@@ -15,4 +15,12 @@ public class Puerta {
 			return "abiertas";
 		}
 	}
+	
+	public void abrirPuerta() {
+		this.estado = false;
+	}
+	
+	public void cerrarPuerta() {
+		this.estado = true;
+	}
 }

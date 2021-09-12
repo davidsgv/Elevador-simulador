@@ -15,4 +15,11 @@ public class Campana {
 			return "Esta sonando";
 		}
 	}
+	
+	public void sonarCampana() {
+		estado = true;
+	}
+	public void detenerCampana() {
+		estado = false;
+	}
 }
