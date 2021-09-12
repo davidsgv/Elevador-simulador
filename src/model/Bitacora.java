@@ -30,12 +30,12 @@ public class Bitacora {
 	
 	public void actualizarTiempo(int segundos) {
 		if(tiempoPersona1 < segundos) {
-			int tiempoPersona1 = ((int)Math.random() * 16 + 5) * 1000 + segundos;
+			tiempoPersona1 = (int)(Math.random() * 16 + 5) + segundos;
 			String mensaje = "Tiempo generacion persona piso 1: " + tiempoPersona1;
 			Logger.log(mensaje);
 		}
 		if(tiempoPersona2 < segundos) {
-			int tiempoPersona2 = ((int)Math.random() * 16 + 5) * 1000 + segundos;
+			tiempoPersona2 = (int)(Math.random() * 16 + 5) + segundos;
 			String mensaje = "Tiempo generacion persona piso 2: " + tiempoPersona2;
 			Logger.log(mensaje);
 		}
@@ -52,6 +52,5 @@ public class Bitacora {
 
 	public void crearPersona(Piso piso, Persona persona) {
 		piso.setPersona(persona);
-		piso.llamarElevador();
 	}
 }

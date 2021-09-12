@@ -18,7 +18,7 @@ public class Piso{
 	}
 	
 	public boolean existePersona(){
-		return persona == null;
+		return persona != null;
 	}
 	
 	public void setPersona(Persona persona){
