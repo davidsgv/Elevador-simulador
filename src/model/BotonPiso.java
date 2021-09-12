@@ -1,9 +1,9 @@
 package model;
 
-public class BotonElevador {
+public class BotonPiso {
 	private boolean iluminacion;
 	
-	public BotonElevador(){
+	public BotonPiso(){
 		iluminacion = false;
 	}
 	
