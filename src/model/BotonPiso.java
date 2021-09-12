@@ -1,18 +1,22 @@
 package model;
 
 public class BotonPiso {
-	private boolean iluminacion;
+	//true activo
+	//false inactivo (no se puede presionar)
+	private boolean estado;
 	
 	public BotonPiso(){
-		iluminacion = false;
+		estado = true;
+	}
+
+	public void presionar() {
+		if(estado == true) {
+			estado = false;
+		}
 	}
 	
-	public void setIluminacion(boolean estado){
-		this.iluminacion = estado;
-	}
-	
-	public boolean getIluminacion(){
-		return iluminacion;
+	public void restablecer() {
+		estado = true;
 	}
 	
 }

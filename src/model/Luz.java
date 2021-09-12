@@ -1,19 +1,20 @@
 package model;
 
-public class Luz(){
+public class Luz{
 
-	private boolean estado; //false = apagado | true = encendido
+	//false = apagado | true = encendido
+	private boolean estado;
 	
 	public Luz(){
 		this.estado = false;
 	}
 	
-	public void setEstado(boolean estado){
-		this.estado = estado;
+	public void apagar(){
+		estado = false;
 	}
 	
-	public boolean getEstado(){
-		return estado;
+	public void encender(){
+		estado = true;
 	}
 	
 }

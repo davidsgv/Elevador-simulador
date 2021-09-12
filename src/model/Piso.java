@@ -5,36 +5,31 @@ public class Piso{
 	private Luz luz;
 	private BotonPiso botonPiso;
 	private Persona persona;
+	private Elevador elevador;
 	
 	public Piso(){
-		empty = true;
+		persona = null;
 		luz = new Luz();
 		botonPiso = new BotonPiso();
 		persona = new Persona();
 	}
 	
 	public boolean existePersona(){
-		persona.getExiste();
+		return persona == null;
 	}
 	
-	public void crearPersona(){
-		persona.setExiste(true);
+	public void setPersona(Persona persona){
+		this.persona = persona;
 	}
 	
-	public void cambiarLuz(boolean estado){
-		luz.setEstado(estado);
+	public void llegaElevador() {
+		botonPiso.restablecer();
+		luz.encender();
 	}
 	
-	public void encenderBotonPiso(boolean iluminacion){
-		botonPiso.setIluminacion(iluminacion);
-	}
-	
-	public boolean getLuz(){
-		return luz.getEstado();
-	}
-	
-	public boolean getBotonPiso(){
-		return botonPiso.getIluminacion();
+	//ToDO
+	public void llamarElevador() {
+		
 	}
 	
 }
