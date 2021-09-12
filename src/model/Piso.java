@@ -1,18 +1,24 @@
 package model;
 
 public class Piso{
-	private boolean empty; // Hay una persona en el piso?
+	//private boolean empty; // Hay una persona en el piso?
 	private Luz luz;
 	private BotonPiso botonPiso;
+	private Persona persona;
 	
 	public Piso(){
 		empty = true;
 		luz = new Luz();
 		botonPiso = new BotonPiso();
+		persona = new Persona();
 	}
 	
-	public void personaExiste(boolean state){
-		this.empty = state;
+	public boolean existePersona(){
+		persona.getExiste();
+	}
+	
+	public void crearPersona(){
+		persona.setExiste(true);
 	}
 	
 	public void cambiarLuz(boolean estado){

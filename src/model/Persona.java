@@ -2,19 +2,18 @@ package model;
 
 public class Persona{
 	
-	int pisoOrigen;
-	int pisoDestino;
+	private boolean existe;
 	
-	public enum Posicion{
-		PISO_1(1),
-		PISO_2(2),
-		ELEVADOR(0)
+	public Persona{
+		this.existe = false;
 	}
 	
-	Posicion posicion;
+	public void setExiste(boolean existe){
+		this.existe = existe;
+	}
 	
-	public void setPosicion(){
-		
+	public boolean getExiste(){
+		return existe;
 	}
 	
 	public void presionarBotonElevador(BotonElevador botonElevador){
