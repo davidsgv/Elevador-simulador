@@ -13,9 +13,11 @@ public class Puerta {
 	
 	public void abrirPuerta() {
 		this.estado = false;
+		Logger.log("Puerta -> Abriendo puerta");
 	}
 	
 	public void cerrarPuerta() {
 		this.estado = true;
+		Logger.log("Puerta -> Cerrando puerta");
 	}
 }

@@ -45,7 +45,7 @@ public class Bitacora {
 			}*/
 			if(tiempoPersona1 == segundos){
 				if(!piso1.existePersona()) {
-					crearPersona(piso1,new Persona());
+					crearPersona(piso1,new Persona(edificio.getElevador()));
 					tiempoPersona1 = establecerTiempo(1,tiempo);
 				}
 				else{
@@ -55,7 +55,7 @@ public class Bitacora {
 			}
 			if(tiempoPersona2 == segundos){
 				if(!piso2.existePersona()) {
-					crearPersona(piso2,new Persona());
+					crearPersona(piso2,new Persona(edificio.getElevador()));
 					tiempoPersona2 = establecerTiempo(2,tiempo);
 				}
 				else{
@@ -81,7 +81,7 @@ public class Bitacora {
 		return piso.existePersona();
 	}
 	
-	private void establecerPrioridad(){
+	/*private void establecerPrioridad(){
 		if(tiempoPersona1<=tiempoPersona2 && (prioridad == 0 || prioridad == 1)){		
 			validarAscensor(piso1);
 			validarAscensor(piso2);
@@ -100,9 +100,9 @@ public class Bitacora {
 				else{
 					validarAscensor(piso2);
 				}
-			}*/			
+			}			
 		}
-	}
+	}*/
 	
 	private int establecerTiempo(int piso, int segundos){
 		int tiempo = ((int)(Math.random()*16) + 5) + segundos;

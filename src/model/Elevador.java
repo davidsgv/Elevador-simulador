@@ -13,6 +13,7 @@ public class Elevador {
 	
 	private int piso;
 	private int tiempo;
+	private int traslados;
 	
 	//private Edificio edificio;
 	
@@ -32,6 +33,7 @@ public class Elevador {
 		
 		pisoElevador = pisos[0]; // Inicia en piso 1
 		piso = 1;
+		traslados = 0;
 		
 		enMovimiento = false;
 	}
@@ -68,25 +70,45 @@ public class Elevador {
 	public void elevadorLlegaPiso(int tiempo) {
 		if(enMovimiento){
 			if(this.tiempo == tiempo){
+				Logger.log("Elevador -> Llegando a piso " + Integer.toString(piso));
+				
+				anunciarLlegada();
+				
+				enMovimiento = false;
+				puerta.abrirPuerta();
+				campana.sonarCampana();
+				
 				if(persona != null){
 					Logger.log("Elevador -> Persona sale de ascensor de piso " + Integer.toString(piso));
 					persona = null;
+					// Si sube con persona hay que verificar que no haya una persona para cerrar las puertas inmediatamente
+					if(pisoVacio(pisos[piso-1])){
+						puerta.cerrarPuerta();
+					}					
 				}
 				else{
+					// Si sube vacio es porque hay una persona esperando
 					Logger.log("Elevador -> Elevador llega vacio a piso " + Integer.toString(piso));
 				}
-				enMovimiento = false;
-				boton.apagarLuz();
-				puerta.abrirPuerta();
-				campana.sonarCampana();
+				
 			}
 			else{
-				Logger.log("Elevador -> En movimiento");
+				boton.apagarLuz();
+				//Logger.log("Elevador -> En movimiento");
 			}
 		}
-		else{
+		/*else{
 			Logger.log("Elevador -> Piso actual " + Integer.toString(piso));
-		}
+		}*/
+	}
+	
+	private void anunciarLlegada(){
+		Logger.log("Elevador -> Anunciar llegada a piso " + Integer.toString(piso));
+		pisos[piso-1].llegaElevador(); //Anunciar llegada a piso
+	}
+	
+	private boolean pisoVacio(Piso piso){
+		return !piso.existePersona();
 	}
 	
 	public boolean llamada(int piso, int tiempo, Persona persona){
@@ -96,15 +118,18 @@ public class Elevador {
 			if(this.piso == piso){
 				Logger.log("Elevador -> Persona en elevador desde " + Integer.toString(piso));
 				//this.persona = persona;
+				persona.entrarElevador();
 				if(this.persona == null){
-					this.persona = new Persona();
+					this.persona = new Persona(this);
 				}
-				cambiarPiso();
+				puerta.cerrarPuerta();
+				//cambiarPiso();
 				return true;
 			}
 			else{
 				cambiarPiso();
 			}
+			puerta.cerrarPuerta(); // Cerrar despues de que ingrese la persona
 		}
 		
 		return false;

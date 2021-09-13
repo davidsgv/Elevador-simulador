@@ -8,6 +8,14 @@ public class BotonPiso {
 	public BotonPiso(){
 		estado = true;
 	}
+	
+	public BotonPiso(Elevador elevador){
+		if(elevador.enMovimiento){
+			estado = false;
+		}else{
+			estado = true;
+		}
+	}
 
 	public void presionar() {
 		if(estado == true) {

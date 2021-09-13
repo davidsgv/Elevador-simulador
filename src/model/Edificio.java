@@ -26,6 +26,11 @@ public class Edificio {
 		Logger.log(mensaje);
 		
 		elevador.elevadorLlegaPiso(segundos);
+		personaEnEspera(segundos);
+		bitacora.actualizarTiempo(segundos);
+	}
+	
+	private void personaEnEspera(int segundos){
 		if(pisos[0].existePersona() && pisos[1].existePersona()){
 			if(pisos[0].getTiempoPersona() < pisos[1].getTiempoPersona()){
 				pisos[0].llamarElevador(segundos);
@@ -33,7 +38,6 @@ public class Edificio {
 			else{
 				pisos[1].llamarElevador(segundos);
 			}
-			//bitacora.actualizarTiempo(segundos);
 		}
 		else{
 			if(pisos[0].existePersona()){
@@ -43,11 +47,7 @@ public class Edificio {
 				pisos[1].llamarElevador(segundos);
 			}
 		}
-		//else
-		bitacora.actualizarTiempo(segundos);
-		//elevador.elevadorLlegaPiso(segundos);
-	}
-	
+	}	
 	
 	public Piso getPiso(int piso) {
 		if(piso == 1) {
@@ -56,6 +56,10 @@ public class Edificio {
 		else { // piso 2
 			return this.pisos[1];
 		}
+	}
+	
+	public Elevador getElevador(){
+		return elevador;
 	}
 	
 }

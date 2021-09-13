@@ -22,4 +22,9 @@ public class BotonElevador {
 		estadoIluminacion = false;
 	}
 	
+	public void restablecerBoton(){
+		Logger.log("BotonElevador -> Restablecer");
+		estadoBoton = true;
+	}
+	
 }

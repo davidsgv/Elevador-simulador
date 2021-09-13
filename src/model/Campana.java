@@ -17,6 +17,7 @@ public class Campana {
 	}
 	
 	public void sonarCampana() {
+		Logger.log("Campana -> Suena melodiosa cancion");
 		estado = true;
 	}
 	public void detenerCampana() {

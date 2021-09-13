@@ -16,7 +16,7 @@ public class Piso{
 		this.numero= numero; 
 		
 		luz = new Luz();
-		botonPiso = new BotonPiso();
+		//botonPiso = new BotonPiso();
 		//elevador = Elevador.getInstance();
 	}
 	
@@ -50,6 +50,7 @@ public class Piso{
 	
 	public void setElevador(Elevador elevador){
 		this.elevador = elevador;
+		this.botonPiso = new BotonPiso(this.elevador);
 	}
 	
 	public boolean llamarElevador(int tiempo) {
