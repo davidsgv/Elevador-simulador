@@ -15,22 +15,21 @@ public final class Reloj {
 	private Reloj(Edificio edificio) {
 		this.edificio = edificio;
 		segundos = 0;
-		timer = new Timer(1000, new ActionListener ()
+		timer = new Timer(500, new ActionListener ()
 		{
 		    public void actionPerformed(ActionEvent e)
 		    {
-		    	segundos++;
 		    	edificio.enviarTiempo(segundos);
-		        //System.out.println(segundos);
+		    	segundos++;
 		     }
 		});
 	}
 	
 	public static Reloj CreateInstance(Edificio edificio) {
 		if (instance == null) {
-            instance = new Reloj(edificio);
-        }
-        return instance;
+            		instance = new Reloj(edificio);
+	        }
+        	return instance;
 	}
 	
 	

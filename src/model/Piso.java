@@ -7,6 +7,8 @@ public class Piso{
 	private Persona persona;
 	private Elevador elevador;
 	
+	private int tiempoPersona;
+	
 	private int numero;
 	
 	public Piso(int numero){
@@ -15,19 +17,30 @@ public class Piso{
 		
 		luz = new Luz();
 		botonPiso = new BotonPiso();
+		//elevador = Elevador.getInstance();
+	}
+	
+	public int getNumero(){
+		return numero;
+	}
+	
+	public int getTiempoPersona(){
+		return tiempoPersona;
 	}
 	
 	public boolean existePersona(){
 		return persona != null;
 	}
 	
-	public void setPersona(Persona persona){
+	public void setPersona(Persona persona, int tiempo){
 		this.persona = persona;
 		
-		String mensaje = "entra persona al piso " + this.numero;
+		String mensaje = "Entra persona al piso " + this.numero;
 		Logger.log(mensaje);
 		
-		llamarElevador();
+		tiempoPersona = tiempo;
+		
+		llamarElevador(tiempo);
 	}
 	
 	public void llegaElevador() {
@@ -35,9 +48,17 @@ public class Piso{
 		luz.encender();
 	}
 	
-	//ToDO
-	public void llamarElevador() {
-		Logger.log("LLamando elevador");
+	public void setElevador(Elevador elevador){
+		this.elevador = elevador;
+	}
+	
+	public boolean llamarElevador(int tiempo) {
+		if(elevador.llamada(numero,tiempo,persona)){
+			persona = null;
+			Logger.log("Persona deja piso " + Integer.toString(numero));
+			return true;
+		}
+		return false;
 	}
 	
 }

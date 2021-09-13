@@ -8,12 +8,7 @@ public class Puerta {
 	}
 	
 	public String getEstado(){
-		if(estado == true) {
-			return "cerradas";
-		}
-		else {
-			return "abiertas";
-		}
+		return (estado)?"cerradas":"abiertas";
 	}
 	
 	public void abrirPuerta() {
